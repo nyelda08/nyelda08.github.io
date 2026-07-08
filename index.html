@@ -21,8 +21,8 @@
       --bg2: #18181f;
       --bg3: #1f1f2a;
       --accent: #7b2fff;
-      --accent-dim: rgba(123,47,255,,0.12);
-      --accent-glow: rgba(123,47,255,,0.35);
+      --accent-dim: rgba(123,47,255,0.12);
+      --accent-glow: rgba(123,47,255,0.35);
       --text: #f0f0f8;
       --text2: rgba(240,240,248,0.55);
       --text3: rgba(240,240,248,0.25);
@@ -43,7 +43,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Noise overlay ── */
     body::before {
       content: '';
       position: fixed;
@@ -54,7 +53,6 @@
       opacity: 0.4;
     }
 
-    /* ── Nav ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -69,57 +67,17 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo span { font-family: var(--mono); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; color: var(--text); }
 
-    .nav-logo img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-    }
-
-    .nav-logo span {
-      font-family: var(--mono);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--text);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--text2);
-      text-decoration: none;
-      transition: color 150ms;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--text2); text-decoration: none; transition: color 150ms; }
     .nav-links a:hover { color: var(--accent); }
 
-    .nav-download {
-      background: var(--accent);
-      color: var(--bg) !important;
-      padding: 8px 18px;
-      border-radius: 6px;
-      transition: opacity 150ms !important;
-    }
-
+    .nav-download { background: var(--accent); color: #fff !important; padding: 8px 18px; border-radius: 6px; transition: opacity 150ms !important; }
     .nav-download:hover { opacity: 0.85; }
 
-    /* ── Hero ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -132,583 +90,302 @@
     }
 
     .hero-glow {
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 400px;
+      position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
       background: radial-gradient(ellipse, rgba(123,47,255,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(123,47,255,0.2);
-      border-radius: 100px;
-      padding: 6px 14px;
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 32px;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-dim); border: 1px solid rgba(123,47,255,0.2);
+      border-radius: 100px; padding: 6px 14px;
+      font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--accent); margin-bottom: 32px;
     }
-
     .hero-badge span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
 
-    .hero-logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      margin-bottom: 32px;
-      box-shadow: 0 0 60px rgba(123,47,255,0.2);
-      animation: float 4s ease-in-out infinite;
-    }
+    .hero-logo { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 32px; box-shadow: 0 0 60px rgba(123,47,255,0.25); animation: float 4s ease-in-out infinite; }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-    .hero h1 {
-      font-size: clamp(48px, 8vw, 88px);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-    }
-
+    .hero h1 { font-size: clamp(48px, 8vw, 88px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; margin-bottom: 24px; }
     .hero h1 .accent { color: var(--accent); }
+    .hero p { font-size: 18px; color: var(--text2); max-width: 500px; line-height: 1.7; margin-bottom: 48px; }
 
-    .hero p {
-      font-size: 18px;
-      color: var(--text2);
-      max-width: 500px;
-      line-height: 1.7;
-      margin-bottom: 48px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .hero-buttons { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: var(--bg);
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 200ms;
-      box-shadow: 0 0 40px rgba(123,47,255,0.3);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      font-family: var(--font); font-size: 15px; font-weight: 700;
+      padding: 14px 28px; border-radius: 10px; text-decoration: none;
+      transition: all 200ms; box-shadow: 0 0 40px rgba(123,47,255,0.35);
     }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 60px rgba(123,47,255,0.5);
-    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(123,47,255,0.55); }
 
     .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg2);
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      border: 1px solid var(--border2);
-      transition: all 200ms;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg2); color: var(--text);
+      font-family: var(--font); font-size: 15px; font-weight: 600;
+      padding: 14px 28px; border-radius: 10px; text-decoration: none;
+      border: 1px solid var(--border2); transition: all 200ms;
     }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text2);
+      font-family: var(--font); font-size: 14px; font-weight: 600;
+      padding: 12px 24px; border-radius: 10px; text-decoration: none;
+      border: 1px solid var(--border2); transition: all 200ms;
     }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-    .hero-meta {
-      margin-top: 24px;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text3);
-      letter-spacing: 0.08em;
-    }
+    .hero-meta { margin-top: 24px; font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.08em; }
 
-    /* ── App preview ── */
-    .preview-section {
-      padding: 40px 24px 100px;
-      display: flex;
-      justify-content: center;
-    }
+    .preview-section { padding: 40px 24px 100px; display: flex; justify-content: center; }
 
     .preview-window {
-      width: 100%;
-      max-width: 860px;
-      background: var(--bg1);
-      border: 1px solid var(--border2);
-      border-radius: 20px;
-      overflow: hidden;
+      width: 100%; max-width: 860px;
+      background: var(--bg1); border: 1px solid var(--border2); border-radius: 20px; overflow: hidden;
       box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
     }
 
-    .preview-titlebar {
-      background: var(--bg1);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .preview-titlebar { background: var(--bg1); border-bottom: 1px solid var(--border); padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
     .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .dot-red { background: #ff5f57; }
-    .dot-yellow { background: #febc2e; }
-    .dot-green { background: #28c840; }
+    .dot-red { background: #ff5f57; } .dot-yellow { background: #febc2e; } .dot-green { background: #28c840; }
+    .preview-titlebar-text { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-left: 8px; letter-spacing: 0.08em; }
 
-    .preview-titlebar-text {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text3);
-      margin-left: 8px;
-      letter-spacing: 0.08em;
-    }
-
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 16px;
-      background: var(--bg);
-    }
+    .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px; background: var(--bg); }
 
     .preview-pad {
-      background: var(--bg2);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      padding: 16px 12px 12px;
-      aspect-ratio: 1.4;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: all 200ms;
+      background: var(--bg2); border: 1px solid var(--border2); border-radius: 12px;
+      padding: 16px 12px 12px; aspect-ratio: 1.4;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden; transition: all 200ms;
     }
-
-    .preview-pad.active {
-      border-color: var(--accent);
-      background: rgba(0,255,136,0.05);
-      box-shadow: 0 0 30px rgba(123,47,255,0.15);
-    }
-
+    .preview-pad.active { border-color: var(--accent); background: rgba(123,47,255,0.06); box-shadow: 0 0 30px rgba(123,47,255,0.18); }
     .preview-pad.blue { border-color: rgba(0,204,255,0.4); background: rgba(0,204,255,0.04); }
     .preview-pad.purple { border-color: rgba(199,125,255,0.4); background: rgba(199,125,255,0.04); }
     .preview-pad.red { border-color: rgba(255,107,107,0.4); background: rgba(255,107,107,0.04); }
     .preview-pad.orange { border-color: rgba(255,159,67,0.4); background: rgba(255,159,67,0.04); }
     .preview-pad.pink { border-color: rgba(253,121,168,0.4); background: rgba(253,121,168,0.04); }
 
-    .preview-pad-num {
-      font-family: var(--mono);
-      font-size: 9px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
+    .preview-pad-num { font-family: var(--mono); font-size: 9px; font-weight: 700; color: var(--accent); }
     .preview-pad.blue .preview-pad-num { color: #00ccff; }
     .preview-pad.purple .preview-pad-num { color: #c77dff; }
     .preview-pad.red .preview-pad-num { color: #ff6b6b; }
     .preview-pad.orange .preview-pad-num { color: #ff9f43; }
     .preview-pad.pink .preview-pad-num { color: #fd79a8; }
 
-    .preview-waves {
-      display: flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 28px;
-    }
-
-    .preview-bar {
-      flex: 1;
-      border-radius: 2px;
-      background: rgbargba(123,47,255,0.2);
-    }
-
+    .preview-waves { display: flex; align-items: flex-end; gap: 2px; height: 28px; }
+    .preview-bar { flex: 1; border-radius: 2px; background: rgba(123,47,255,0.2); }
     .preview-pad.blue .preview-bar { background: rgba(0,204,255,0.2); }
     .preview-pad.purple .preview-bar { background: rgba(199,125,255,0.2); }
     .preview-pad.red .preview-bar { background: rgba(255,107,107,0.2); }
     .preview-pad.orange .preview-bar { background: rgba(255,159,67,0.2); }
     .preview-pad.pink .preview-bar { background: rgba(253,121,168,0.2); }
-
     .preview-pad.active .preview-bar { background: var(--accent); animation: barAnim 0.6s ease-in-out infinite alternate; }
 
-    @keyframes barAnim {
-      from { transform: scaleY(0.5); }
-      to { transform: scaleY(1); }
-    }
+    @keyframes barAnim { from { transform: scaleY(0.5); } to { transform: scaleY(1); } }
 
-    .preview-pad-name {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text);
-      text-align: center;
-    }
+    .preview-pad-name { font-size: 11px; font-weight: 600; color: var(--text); text-align: center; }
+    .preview-pad-empty { background: var(--bg2); border: 1px dashed var(--border); border-radius: 12px; aspect-ratio: 1.4; display: flex; align-items: center; justify-content: center; color: var(--text3); font-size: 20px; }
 
-    .preview-pad-empty {
-      background: var(--bg2);
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      aspect-ratio: 1.4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text3);
-      font-size: 20px;
-    }
+    .features { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
 
-    /* ── Features ── */
-    .features {
-      padding: 100px 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .section-label { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); text-align: center; margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; text-align: center; letter-spacing: -0.02em; margin-bottom: 64px; line-height: 1.1; }
 
-    .section-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 16px;
-    }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
 
-    .section-title {
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 800;
-      text-align: center;
-      letter-spacing: -0.02em;
-      margin-bottom: 64px;
-      line-height: 1.1;
-    }
+    .feature-card { background: var(--bg1); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: all 200ms; }
+    .feature-card:hover { border-color: var(--border2); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .feature-icon { font-size: 28px; margin-bottom: 16px; }
+    .feature-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .feature-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
-    }
-
-    .feature-card {
-      background: var(--bg1);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: all 200ms;
-    }
-
-    .feature-card:hover {
-      border-color: var(--border2);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-
-    .feature-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-
-    .feature-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text);
-    }
-
-    .feature-desc {
-      font-size: 13px;
-      color: var(--text2);
-      line-height: 1.7;
-    }
-
-    /* ── How it works ── */
-    .how-it-works {
+    /* ── Getting Started ── */
+    .getting-started {
       padding: 100px 24px;
       background: var(--bg1);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .steps {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+    .getting-started-inner { max-width: 900px; margin: 0 auto; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
     }
 
-    .step {
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-      padding: 32px 0;
-      border-bottom: 1px solid var(--border);
+    .step-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all 200ms;
+      position: relative;
     }
 
-    .step:last-child { border-bottom: none; }
+    .step-card:hover { border-color: rgba(123,47,255,0.3); transform: translateY(-3px); }
 
-    .step-num {
+    .step-card-num {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--accent);
       background: var(--accent-dim);
       border: 1px solid rgba(123,47,255,0.2);
-      border-radius: 8px;
-      width: 36px;
-      height: 36px;
+      border-radius: 6px;
+      width: 28px;
+      height: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      margin-bottom: 14px;
     }
 
-    .step-content h3 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .step-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .step-card p { font-size: 12px; color: var(--text2); line-height: 1.7; }
+
+    .step-card-tip {
+      margin-top: 12px;
+      padding: 8px 10px;
+      background: var(--bg3);
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
     }
 
-    .step-content p {
-      font-size: 13px;
-      color: var(--text2);
-      line-height: 1.7;
+    .vbcable-box {
+      background: var(--bg2);
+      border: 1px solid rgba(123,47,255,0.2);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 24px 28px;
     }
 
-    /* ── Discord section ── */
-    .discord-section {
+    .vbcable-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .vbcable-box p { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
+
+    .vbcable-steps { display: flex; flex-direction: column; gap: 10px; }
+
+    .vbcable-step { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+    .vbcable-step-num {
+      font-family: var(--mono); font-size: 9px; font-weight: 700;
+      color: var(--accent); background: var(--accent-dim);
+      border-radius: 50%; width: 18px; height: 18px; min-width: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ── Feedback ── */
+    .feedback {
       padding: 100px 24px;
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
     }
 
-    .discord-card {
+    .feedback-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .feedback-card {
       background: var(--bg1);
-      border: 1px solid var(--border2);
-      border-radius: 20px;
-      padding: 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .discord-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(123,47,255,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .discord-icon { font-size: 48px; margin-bottom: 20px; }
-
-    .discord-card h2 {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .discord-card p {
-      font-size: 14px;
-      color: var(--text2);
-      line-height: 1.7;
-      max-width: 480px;
-      margin: 0 auto 32px;
-    }
-
-    .discord-steps {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      text-align: left;
-      background: var(--bg2);
-      border-radius: 12px;
-      padding: 20px;
-    }
-
-    .discord-step {
-      display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 13px;
-      color: var(--text2);
-    }
-
-    .discord-step-num {
-      font-family: var(--mono);
-      font-size: 9px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    /* ── CTA ── */
-    .cta {
-      padding: 120px 24px;
-      text-align: center;
-      position: relative;
-    }
-
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 800px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(0,255,136,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta h2 {
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
-
-    .cta p {
-      font-size: 16px;
-      color: var(--text2);
-      margin-bottom: 48px;
-    }
-
-    .cta-buttons {
-      display: flex;
       gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-coffee {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #FFDD00;
-      color: #000;
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 700;
-      padding: 14px 24px;
-      border-radius: 10px;
       text-decoration: none;
       transition: all 200ms;
     }
 
-    .btn-coffee:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(255,221,0,0.3);
-    }
+    .feedback-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(123,47,255,0.1); }
 
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+    .feedback-card-icon { font-size: 36px; }
+    .feedback-card h3 { font-size: 16px; font-weight: 700; color: var(--text); }
+    .feedback-card p { font-size: 13px; color: var(--text2); line-height: 1.6; text-align: center; }
 
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-
-    .footer-logo img { width: 24px; height: 24px; border-radius: 6px; }
-
-    .footer-logo span {
+    .feedback-card .feedback-btn {
+      margin-top: 8px;
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 700;
-      color: var(--text2);
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(123,47,255,0.2);
+      border-radius: 6px;
+      padding: 6px 14px;
     }
 
-    .footer-text {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text3);
-      letter-spacing: 0.06em;
-    }
+    .how-it-works { padding: 100px 24px; background: var(--bg1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .steps { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; }
+    .step { display: flex; gap: 24px; align-items: flex-start; padding: 32px 0; border-bottom: 1px solid var(--border); }
+    .step:last-child { border-bottom: none; }
+    .step-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-dim); border: 1px solid rgba(123,47,255,0.2); border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step-content p { font-size: 13px; color: var(--text2); line-height: 1.7; }
 
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
+    .discord-section { padding: 100px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+    .discord-card { background: var(--bg1); border: 1px solid var(--border2); border-radius: 20px; padding: 48px; position: relative; overflow: hidden; }
+    .discord-card::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(123,47,255,0.08) 0%, transparent 70%); pointer-events: none; }
+    .discord-icon { font-size: 48px; margin-bottom: 20px; }
+    .discord-card h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+    .discord-card p { font-size: 14px; color: var(--text2); line-height: 1.7; max-width: 480px; margin: 0 auto 32px; }
+    .discord-steps { display: flex; flex-direction: column; gap: 12px; text-align: left; background: var(--bg2); border-radius: 12px; padding: 20px; }
+    .discord-step { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text2); }
+    .discord-step-num { font-family: var(--mono); font-size: 9px; font-weight: 700; color: var(--accent); background: var(--accent-dim); border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-    .footer-links a {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text3);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      transition: color 150ms;
-    }
+    .cta { padding: 120px 24px; text-align: center; position: relative; }
+    .cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(123,47,255,0.07) 0%, transparent 70%); pointer-events: none; }
+    .cta h2 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; line-height: 1.1; }
+    .cta p { font-size: 16px; color: var(--text2); margin-bottom: 48px; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+    .btn-coffee { display: inline-flex; align-items: center; gap: 8px; background: #FFDD00; color: #000; font-family: var(--font); font-size: 14px; font-weight: 700; padding: 14px 24px; border-radius: 10px; text-decoration: none; transition: all 200ms; }
+    .btn-coffee:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,221,0,0.3); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .footer-logo img { width: 24px; height: 24px; border-radius: 6px; }
+    .footer-logo span { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text2); }
+    .footer-text { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.06em; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-family: var(--mono); font-size: 10px; color: var(--text3); text-decoration: none; letter-spacing: 0.06em; transition: color 150ms; }
     .footer-links a:hover { color: var(--accent); }
 
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 
-    /* ── Responsive ── */
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       footer { flex-direction: column; align-items: flex-start; }
+      .feedback-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
   <nav>
     <a href="#" class="nav-logo">
       <img src="logo.png" alt="Wavecue" />
@@ -716,14 +393,14 @@
     </a>
     <ul class="nav-links">
       <li><a href="#features">FEATURES</a></li>
-      <li><a href="#how">HOW IT WORKS</a></li>
+      <li><a href="#guide">GET STARTED</a></li>
       <li><a href="#discord">DISCORD</a></li>
+      <li><a href="#feedback">FEEDBACK</a></li>
       <li><a href="https://buymeacoffee.com/nyelda08" target="_blank">DONATE</a></li>
       <li><a href="https://github.com/nyelda08/wavecue/releases/latest/download/Wavecue.Setup.1.0.0.exe" class="nav-download">DOWNLOAD</a></li>
     </ul>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-glow"></div>
     <div class="hero-badge"><span></span> FREE FOREVER — WINDOWS</div>
@@ -731,17 +408,12 @@
     <h1>The soundboard<br />built for <span class="accent">gamers.</span></h1>
     <p>Play any sound in Discord, Medal, or any game with a single keypress. Fully customizable, zero lag, completely free.</p>
     <div class="hero-buttons">
-      <a href="https://github.com/nyelda08/wavecue/releases/latest/download/Wavecue.Setup.1.0.0.exe" class="btn-primary">
-        ↓ Download for Windows
-      </a>
-      <a href="https://buymeacoffee.com/nyelda08" target="_blank" class="btn-secondary">
-        ☕ Buy me a coffee
-      </a>
+      <a href="https://github.com/nyelda08/wavecue/releases/latest/download/Wavecue.Setup.1.0.0.exe" class="btn-primary">↓ Download for Windows</a>
+      <a href="https://buymeacoffee.com/nyelda08" target="_blank" class="btn-secondary">☕ Buy me a coffee</a>
     </div>
     <p class="hero-meta">FREE · NO ADS · NO ACCOUNT NEEDED · WINDOWS 10/11</p>
   </section>
 
-  <!-- App Preview -->
   <section class="preview-section">
     <div class="preview-window">
       <div class="preview-titlebar">
@@ -754,84 +426,60 @@
         <div class="preview-pad active">
           <span class="preview-pad-num">01</span>
           <div class="preview-waves">
-            <div class="preview-bar" style="height:40%"></div>
-            <div class="preview-bar" style="height:70%"></div>
-            <div class="preview-bar" style="height:55%"></div>
-            <div class="preview-bar" style="height:85%"></div>
-            <div class="preview-bar" style="height:60%"></div>
-            <div class="preview-bar" style="height:90%"></div>
-            <div class="preview-bar" style="height:45%"></div>
-            <div class="preview-bar" style="height:75%"></div>
+            <div class="preview-bar" style="height:40%"></div><div class="preview-bar" style="height:70%"></div>
+            <div class="preview-bar" style="height:55%"></div><div class="preview-bar" style="height:85%"></div>
+            <div class="preview-bar" style="height:60%"></div><div class="preview-bar" style="height:90%"></div>
+            <div class="preview-bar" style="height:45%"></div><div class="preview-bar" style="height:75%"></div>
           </div>
           <span class="preview-pad-name">Airhorn</span>
         </div>
         <div class="preview-pad blue">
           <span class="preview-pad-num">02</span>
           <div class="preview-waves">
-            <div class="preview-bar" style="height:30%"></div>
-            <div class="preview-bar" style="height:60%"></div>
-            <div class="preview-bar" style="height:45%"></div>
-            <div class="preview-bar" style="height:75%"></div>
-            <div class="preview-bar" style="height:50%"></div>
-            <div class="preview-bar" style="height:80%"></div>
-            <div class="preview-bar" style="height:35%"></div>
-            <div class="preview-bar" style="height:65%"></div>
+            <div class="preview-bar" style="height:30%"></div><div class="preview-bar" style="height:60%"></div>
+            <div class="preview-bar" style="height:45%"></div><div class="preview-bar" style="height:75%"></div>
+            <div class="preview-bar" style="height:50%"></div><div class="preview-bar" style="height:80%"></div>
+            <div class="preview-bar" style="height:35%"></div><div class="preview-bar" style="height:65%"></div>
           </div>
           <span class="preview-pad-name">Bruh</span>
         </div>
         <div class="preview-pad purple">
           <span class="preview-pad-num">03</span>
           <div class="preview-waves">
-            <div class="preview-bar" style="height:50%"></div>
-            <div class="preview-bar" style="height:80%"></div>
-            <div class="preview-bar" style="height:35%"></div>
-            <div class="preview-bar" style="height:65%"></div>
-            <div class="preview-bar" style="height:90%"></div>
-            <div class="preview-bar" style="height:40%"></div>
-            <div class="preview-bar" style="height:70%"></div>
-            <div class="preview-bar" style="height:55%"></div>
+            <div class="preview-bar" style="height:50%"></div><div class="preview-bar" style="height:80%"></div>
+            <div class="preview-bar" style="height:35%"></div><div class="preview-bar" style="height:65%"></div>
+            <div class="preview-bar" style="height:90%"></div><div class="preview-bar" style="height:40%"></div>
+            <div class="preview-bar" style="height:70%"></div><div class="preview-bar" style="height:55%"></div>
           </div>
           <span class="preview-pad-name">Vine Boom</span>
         </div>
         <div class="preview-pad red">
           <span class="preview-pad-num">04</span>
           <div class="preview-waves">
-            <div class="preview-bar" style="height:60%"></div>
-            <div class="preview-bar" style="height:40%"></div>
-            <div class="preview-bar" style="height:80%"></div>
-            <div class="preview-bar" style="height:55%"></div>
-            <div class="preview-bar" style="height:70%"></div>
-            <div class="preview-bar" style="height:35%"></div>
-            <div class="preview-bar" style="height:90%"></div>
-            <div class="preview-bar" style="height:50%"></div>
+            <div class="preview-bar" style="height:60%"></div><div class="preview-bar" style="height:40%"></div>
+            <div class="preview-bar" style="height:80%"></div><div class="preview-bar" style="height:55%"></div>
+            <div class="preview-bar" style="height:70%"></div><div class="preview-bar" style="height:35%"></div>
+            <div class="preview-bar" style="height:90%"></div><div class="preview-bar" style="height:50%"></div>
           </div>
           <span class="preview-pad-name">Rizz</span>
         </div>
         <div class="preview-pad orange">
           <span class="preview-pad-num">05</span>
           <div class="preview-waves">
-            <div class="preview-bar" style="height:45%"></div>
-            <div class="preview-bar" style="height:75%"></div>
-            <div class="preview-bar" style="height:60%"></div>
-            <div class="preview-bar" style="height:30%"></div>
-            <div class="preview-bar" style="height:85%"></div>
-            <div class="preview-bar" style="height:50%"></div>
-            <div class="preview-bar" style="height:65%"></div>
-            <div class="preview-bar" style="height:40%"></div>
+            <div class="preview-bar" style="height:45%"></div><div class="preview-bar" style="height:75%"></div>
+            <div class="preview-bar" style="height:60%"></div><div class="preview-bar" style="height:30%"></div>
+            <div class="preview-bar" style="height:85%"></div><div class="preview-bar" style="height:50%"></div>
+            <div class="preview-bar" style="height:65%"></div><div class="preview-bar" style="height:40%"></div>
           </div>
           <span class="preview-pad-name">Taco Bell</span>
         </div>
         <div class="preview-pad pink">
           <span class="preview-pad-num">06</span>
           <div class="preview-waves">
-            <div class="preview-bar" style="height:70%"></div>
-            <div class="preview-bar" style="height:45%"></div>
-            <div class="preview-bar" style="height:85%"></div>
-            <div class="preview-bar" style="height:60%"></div>
-            <div class="preview-bar" style="height:40%"></div>
-            <div class="preview-bar" style="height:75%"></div>
-            <div class="preview-bar" style="height:55%"></div>
-            <div class="preview-bar" style="height:90%"></div>
+            <div class="preview-bar" style="height:70%"></div><div class="preview-bar" style="height:45%"></div>
+            <div class="preview-bar" style="height:85%"></div><div class="preview-bar" style="height:60%"></div>
+            <div class="preview-bar" style="height:40%"></div><div class="preview-bar" style="height:75%"></div>
+            <div class="preview-bar" style="height:55%"></div><div class="preview-bar" style="height:90%"></div>
           </div>
           <span class="preview-pad-name">Laugh Track</span>
         </div>
@@ -842,126 +490,108 @@
     </div>
   </section>
 
-  <!-- Features -->
   <section class="features" id="features">
     <p class="section-label">FEATURES</p>
     <h2 class="section-title">Everything you need.<br />Nothing you don't.</h2>
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">⌨️</div>
-        <h3 class="feature-title">Global Hotkeys</h3>
-        <p class="feature-desc">Assign any key or numpad button to any sound. Triggers work even while you're in a game, without alt-tabbing.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎛️</div>
-        <h3 class="feature-title">5 Soundboards</h3>
-        <p class="feature-desc">Create up to 5 separate boards, each with 9 pads. Switch between them instantly — perfect for different games or moods.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎨</div>
-        <h3 class="feature-title">Fully Customizable</h3>
-        <p class="feature-desc">Color each pad, choose animations, adjust glow intensity, tune pitch and speed. Make it yours.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📡</div>
-        <h3 class="feature-title">Discord & Medal Ready</h3>
-        <p class="feature-desc">Route audio through VB-Cable so everyone in your call hears your sounds. Medal records it automatically.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💾</div>
-        <h3 class="feature-title">Sounds Saved Forever</h3>
-        <p class="feature-desc">Upload a sound once and it's kept permanently. Delete the original file — Wavecue keeps its own private copy.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3 class="feature-title">Zero Lag Playback</h3>
-        <p class="feature-desc">Sounds play instantly the moment you press the key. No buffering, no delay, no quality loss. Perfect audio every time.</p>
-      </div>
+      <div class="feature-card"><div class="feature-icon">⌨️</div><h3 class="feature-title">Global Hotkeys</h3><p class="feature-desc">Assign any key or numpad button to any sound. Triggers work even while you're in a game, without alt-tabbing.</p></div>
+      <div class="feature-card"><div class="feature-icon">🎛️</div><h3 class="feature-title">5 Soundboards</h3><p class="feature-desc">Create up to 5 separate boards, each with 9 pads. Switch between them instantly — perfect for different games or moods.</p></div>
+      <div class="feature-card"><div class="feature-icon">🎨</div><h3 class="feature-title">Fully Customizable</h3><p class="feature-desc">Color each pad, choose animations, adjust glow intensity, tune pitch and speed. Make it yours.</p></div>
+      <div class="feature-card"><div class="feature-icon">📡</div><h3 class="feature-title">Discord & Medal Ready</h3><p class="feature-desc">Route audio through VB-Cable so everyone in your call hears your sounds. Medal records it automatically.</p></div>
+      <div class="feature-card"><div class="feature-icon">💾</div><h3 class="feature-title">Sounds Saved Forever</h3><p class="feature-desc">Upload a sound once and it's kept permanently. Delete the original file — Wavecue keeps its own private copy.</p></div>
+      <div class="feature-card"><div class="feature-icon">⚡</div><h3 class="feature-title">Zero Lag Playback</h3><p class="feature-desc">Sounds play instantly the moment you press the key. No buffering, no delay, no quality loss. Perfect audio every time.</p></div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="how-it-works" id="how">
-    <p class="section-label">HOW IT WORKS</p>
-    <h2 class="section-title" style="margin-bottom:48px">Up and running<br />in minutes.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
+  <!-- Getting Started -->
+  <section class="getting-started" id="guide">
+    <div class="getting-started-inner">
+      <p class="section-label">GET STARTED</p>
+      <h2 class="section-title">Up and running<br />in 2 minutes.</h2>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-card-num">01</div>
           <h3>Download & Install</h3>
-          <p>Click the download button, run the installer, and Wavecue sets itself up. A shortcut appears on your desktop automatically.</p>
+          <p>Click the download button and run the installer. Wavecue installs automatically and creates a desktop shortcut.</p>
+          <div class="step-card-tip">↓ One click install</div>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
+        <div class="step-card">
+          <div class="step-card-num">02</div>
           <h3>Upload Your Sounds</h3>
-          <p>Click any empty pad to open your file picker, or just drag and drop audio files directly onto the pads. Supports MP3, WAV, OGG, FLAC, AAC, and more.</p>
+          <p>Click any empty pad to pick an audio file, or drag and drop directly onto the pad. Supports MP3, WAV, OGG, FLAC, AAC and more.</p>
+          <div class="step-card-tip">🎵 Any audio format</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card-num">03</div>
+          <h3>Assign a Hotkey</h3>
+          <p>Click SHORTCUTS on any pad, then press your desired key combo. Works globally — even while you're in a game.</p>
+          <div class="step-card-tip">⌨️ Numpad supported</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card-num">04</div>
+          <h3>Customize Your Pad</h3>
+          <p>Click STY to change colors and animations. Click FX to tune pitch, speed, and fade effects. Make every pad unique.</p>
+          <div class="step-card-tip">🎨 Fully customizable</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card-num">05</div>
+          <h3>Create More Boards</h3>
+          <p>Click the + tab at the top to add a new soundboard. Create up to 5 boards — one per game, mood, or stream.</p>
+          <div class="step-card-tip">🎛️ Up to 5 boards</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card-num">06</div>
+          <h3>Play!</h3>
+          <p>Click any pad or press your hotkey to play. The same hotkey plays the sound on whichever board you're currently viewing.</p>
+          <div class="step-card-tip">▶ Instant playback</div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <h3>Assign Hotkeys</h3>
-          <p>Click SHORTCUTS on any pad and press your desired key combo. Works globally — trigger sounds from any app or game.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-content">
-          <h3>Play & Have Fun</h3>
-          <p>Click a pad or press your hotkey — the sound plays instantly. Customize colors, animations, and effects to make your board unique.</p>
+
+      <div class="vbcable-box">
+        <h3>📡 Want your friends to hear it too?</h3>
+        <p>Install the free VB-Cable virtual audio driver, then follow these steps to route Wavecue through Discord.</p>
+        <div class="vbcable-steps">
+          <div class="vbcable-step"><div class="vbcable-step-num">1</div><span>Download & install <strong>VB-Cable</strong> for free at <strong>vb-audio.com</strong></span></div>
+          <div class="vbcable-step"><div class="vbcable-step-num">2</div><span>In Wavecue → Settings → Secondary Output → select <strong>CABLE Input (VB-Audio)</strong></span></div>
+          <div class="vbcable-step"><div class="vbcable-step-num">3</div><span>In Discord → Voice Settings → Input Device → select <strong>CABLE Output (VB-Audio)</strong></span></div>
+          <div class="vbcable-step"><div class="vbcable-step-num">4</div><span>Turn off <strong>Echo Cancellation</strong>, <strong>Noise Suppression</strong>, and <strong>Auto Gain</strong> in Discord</span></div>
+          <div class="vbcable-step"><div class="vbcable-step-num">5</div><span>Play a sound — everyone in your call hears it! 🎉</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Discord -->
-  <section class="discord-section" id="discord">
-    <div class="discord-card">
-      <div class="discord-icon">🎮</div>
-      <h2>Make your friends hear it too.</h2>
-      <p>With a free virtual audio cable, everyone in your Discord call or game lobby will hear your sounds loud and clear.</p>
-      <div class="discord-steps">
-        <div class="discord-step">
-          <div class="discord-step-num">1</div>
-          <span>Download & install <strong>VB-Cable</strong> (free at vb-audio.com)</span>
-        </div>
-        <div class="discord-step">
-          <div class="discord-step-num">2</div>
-          <span>In Wavecue Settings → Secondary Output → <strong>CABLE Input</strong></span>
-        </div>
-        <div class="discord-step">
-          <div class="discord-step-num">3</div>
-          <span>In Discord → Voice Settings → Input → <strong>CABLE Output</strong></span>
-        </div>
-        <div class="discord-step">
-          <div class="discord-step-num">4</div>
-          <span>Turn off Echo Cancellation & Noise Suppression in Discord</span>
-        </div>
-        <div class="discord-step">
-          <div class="discord-step-num">5</div>
-          <span>Play a sound — <strong>everyone hears it!</strong> 🎉</span>
-        </div>
-      </div>
+  <!-- Feedback -->
+  <section class="feedback" id="feedback">
+    <p class="section-label">FEEDBACK</p>
+    <h2 class="section-title">Help us make it better.</h2>
+    <p style="font-size:15px; color:var(--text2); max-width:480px; margin:0 auto; line-height:1.7;">Found a bug? Have a feature idea? We read every single report and use them to improve Wavecue with every update.</p>
+    <div class="feedback-cards">
+      <a href="https://github.com/nyelda08/wavecue/issues/new?template=bug_report.md" target="_blank" class="feedback-card">
+        <div class="feedback-card-icon">🐛</div>
+        <h3>Report a Bug</h3>
+        <p>Something not working right? Let us know exactly what happened so we can fix it fast.</p>
+        <span class="feedback-btn">REPORT BUG →</span>
+      </a>
+      <a href="https://github.com/nyelda08/wavecue/issues/new?template=feature_request.md" target="_blank" class="feedback-card">
+        <div class="feedback-card-icon">💡</div>
+        <h3>Request a Feature</h3>
+        <p>Got an idea that would make Wavecue better? We want to hear it — no idea is too small.</p>
+        <span class="feedback-btn">SUGGEST FEATURE →</span>
+      </a>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta">
     <h2>Ready to upgrade<br />your soundboard?</h2>
     <p>Free forever. No account needed. Just download and play.</p>
     <div class="cta-buttons">
-      <a href="https://github.com/nyelda08/wavecue/releases/latest/download/Wavecue.Setup.1.0.0.exe" class="btn-primary">
-        ↓ Download Wavecue — Free
-      </a>
-      <a href="https://buymeacoffee.com/nyelda08" target="_blank" class="btn-coffee">
-        ☕ Buy me a coffee
-      </a>
+      <a href="https://github.com/nyelda08/wavecue/releases/latest/download/Wavecue.Setup.1.0.0.exe" class="btn-primary">↓ Download Wavecue — Free</a>
+      <a href="https://buymeacoffee.com/nyelda08" target="_blank" class="btn-coffee">☕ Buy me a coffee</a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <a href="#" class="footer-logo">
       <img src="logo.png" alt="Wavecue" />
@@ -970,6 +600,7 @@
     <p class="footer-text">FREE · OPEN SOURCE · WINDOWS 10/11</p>
     <div class="footer-links">
       <a href="https://github.com/nyelda08/wavecue" target="_blank">GITHUB</a>
+      <a href="https://github.com/nyelda08/wavecue/issues" target="_blank">ISSUES</a>
       <a href="https://buymeacoffee.com/nyelda08" target="_blank">DONATE</a>
     </div>
   </footer>
